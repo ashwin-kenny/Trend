@@ -59,11 +59,18 @@ Run Terraform Commands:
 * terraform plan - Shows what will change
 * terraform apply --auto-approve - Makes real changes in AWS
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/1f6c7aa6-7c79-4bda-b406-18941ec89581" />
 
 
 ### Build Docker Image
 
+* Create Dockerfile
+* Build the Docker Image, login, push using Below Commands: Replace ${IMAGE_NAME} and ${IMAGE_TAG} with your desired values.
 
+docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .
+echo "${DOCKERHUB_PASS}" | docker login -u "${DOCKERHUB_USER}" --password-stdin
+docker push ${IMAGE_NAME}:${IMAGE_TAG}
 
-### Push Docker Image
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d362ca38-fba3-45c2-801f-c8740b25b05c" />
+
 
