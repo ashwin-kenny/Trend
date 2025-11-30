@@ -68,7 +68,7 @@ pipeline {
                     aws configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}
                     aws configure set region 'us-east-1'
 
-                    aws eks update-kubeconfig --region $AWS_REGION --name $EKS_CLUSTER
+                    aws eks update-kubeconfig --region 'us-east-1' --name 'trendapp'
                 '''
             }
         }
