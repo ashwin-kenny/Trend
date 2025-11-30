@@ -81,6 +81,7 @@ pipeline {
                 '''
             }
         }
+    }
 
     post {
         always {
@@ -88,5 +89,4 @@ pipeline {
             echo "Pipeline completed."
         }
     }
-}
 }
