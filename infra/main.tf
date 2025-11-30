@@ -89,6 +89,12 @@ resource "aws_iam_instance_profile" "ec2_profile" {
 # Linux EC2 with password auth
 ############################
 
+resource "aws_key_pair" "deployer_key_pair" {
+  key_name   = "my-terraform-key" # Name for the key pair in AWS
+  # Path to your local public key file (~/.ssh/mykeypair_rsa.pub)
+  public_key = file("mykeypair_rsa.pub")
+}
+
 resource "aws_instance" "ec2" {
   ami                         = "ami-0fa3fe0fa7920f68e" # Amazon Linux 2
   instance_type               = "t3.micro"
@@ -96,15 +102,9 @@ resource "aws_instance" "ec2" {
   vpc_security_group_ids      = [aws_security_group.ec2_sg.id]
   iam_instance_profile        = aws_iam_instance_profile.ec2_profile.name
   associate_public_ip_address = true
-
-  # Enable username + password SSH login
-  user_data = <<-EOF
-              #!/bin/bash
-              echo "ec2user:Password123!" | chpasswd
-              sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
-              systemctl restart sshd
-              EOF
+  key_name = aws_key_pair.deployer_key_pair.key_name
 
   tags = { Name = "tf-ec2" }
 }
+
 
