@@ -100,7 +100,7 @@ resource "aws_iam_instance_profile" "ec2_profile" {
 ############################
 
 resource "aws_key_pair" "deployer_key_pair" {
-  key_name   = "key-auth" # Name for the key pair in AWS
+  key_name   = "key-auth-1" # Name for the key pair in AWS
   # Path to your local public key file (~/.ssh/mykeypair_rsa.pub)
   public_key = file("mykeypair_rsa.pub")
 }
