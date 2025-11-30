@@ -7,6 +7,8 @@ pipeline {
     environment {
         DOCKERHUB_USER = credentials('dockerhub-username')   // Jenkins Credential ID
         DOCKERHUB_PASS = credentials('dockerhub-password')   // Jenkins Credential ID
+        AWS_ACCESS_KEY_ID = credentials('aws-access-key')   // Jenkins Credential ID
+        AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')
         IMAGE_NAME = "ashwkenny/trend-app" // Change this
         IMAGE_TAG  = "latest"
     }
