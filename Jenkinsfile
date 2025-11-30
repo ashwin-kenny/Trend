@@ -60,9 +60,8 @@ pipeline {
                 }
             }
         }
-    }
 
-    stage('Configure kubectl for EKS') {
+        stage('Configure kubectl for EKS') {
             steps {
                 sh '''
                     aws configure set aws_access_key_id ${AWS_ACCESS_KEY_ID}
@@ -89,4 +88,5 @@ pipeline {
             echo "Pipeline completed."
         }
     }
+}
 }
