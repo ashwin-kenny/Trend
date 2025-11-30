@@ -41,7 +41,7 @@ To retreive password:
 
 * sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
-Browse at: http://<EC2-Public-IP>:8080
+Browse at: http://EC2-Public-IP:8080
 
 ### Create DockerHub Account
 
