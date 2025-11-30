@@ -12,18 +12,12 @@ pipeline {
     }
 
     stages {
-
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
+        
         stage('Build Docker Image') {
             steps {
                 script {
                     sh """
-                    docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .
+                    sudo docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .
                     """
                 }
             }
@@ -33,7 +27,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                    echo "${DOCKERHUB_PASS}" | docker login -u "${DOCKERHUB_USER}" --password-stdin
+                    echo "${DOCKERHUB_PASS}" | sudo docker login -u "${DOCKERHUB_USER}" --password-stdin
                     """
                 }
             }
@@ -43,7 +37,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                    docker push ${IMAGE_NAME}:${IMAGE_TAG}
+                    sudo docker push ${IMAGE_NAME}:${IMAGE_TAG}
                     """
                 }
             }
