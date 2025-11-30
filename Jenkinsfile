@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Verify Trigger') {
             steps {
-                echo "🎉 Jenkins pipeline triggered by GitHub push !"
+                echo "🎉 Jenkins pipeline triggered by GitHub push!"
 
                 echo "Branch: ${env.GIT_BRANCH}"
                 echo "Commit ID: ${env.GIT_COMMIT}"
