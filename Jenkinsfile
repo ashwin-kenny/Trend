@@ -62,6 +62,27 @@ pipeline {
         }
     }
 
+    stage('Configure kubectl for EKS') {
+            steps {
+                sh '''
+                    aws configure set aws_access_key_id ${AWS_ACCESS_KEY_ID}
+                    aws configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}
+                    aws configure set region 'us-east-1'
+
+                    aws eks update-kubeconfig --region $AWS_REGION --name $EKS_CLUSTER
+                '''
+            }
+        }
+
+        stage('Deploy to EKS') {
+            steps {
+                sh '''
+                    kubectl apply -f k8s/deployment.yaml
+                    kubectl apply -f k8s/service.yaml
+                '''
+            }
+        }
+
     post {
         always {
             sh 'docker logout'
