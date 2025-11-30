@@ -37,10 +37,11 @@
 * sudo usermod -aG docker jenkins
 * sudo systemctl restart jenkins
 
-* To retreive password:
+To retreive password:
+
 * sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
-* Browse at: http://<EC2-Public-IP>:8080
+Browse at: http://<EC2-Public-IP>:8080
 
 ### Create DockerHub Account
 
@@ -51,7 +52,8 @@
 ### Create Infra
 
 * Create infra/main.tf file with required resource blocks for aws.(AWS EC2, IAM Role, VPC)
-* Run Terraform Commands:
+
+Run Terraform Commands:
 
 * terraform init - Downloads providers, configures backend
 * terraform plan - Shows what will change
