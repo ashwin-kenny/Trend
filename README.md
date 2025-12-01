@@ -4,7 +4,8 @@
 * CICD using Jenkins. Terraform used to create EC2, VPC, IAM roles which hosts jenkins and docker.
 
 ## Create Ec2 Instance and install the required tools explained below:
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9f45ec58-b980-4009-b644-c22d1fbf469c" />
+<img width="529" height="751" alt="image" src="https://github.com/user-attachments/assets/1856e4fa-81de-4684-b6ac-86b8a99c9c89" />
+
 
 
 ## Tools to be installed (amazon Linux)
