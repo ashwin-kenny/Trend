@@ -3,6 +3,10 @@
 * This project contains the executable code of React JS deployed in EKS cluster.
 * CICD using Jenkins. Terraform used to create EC2, VPC, IAM roles which hosts jenkins and docker.
 
+## Create Ec2 Instance and install the required tools explained below:
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/9f45ec58-b980-4009-b644-c22d1fbf469c" />
+
+
 ## Tools to be installed (amazon Linux)
 
 ### Git
@@ -43,9 +47,20 @@ To retreive password:
 
 Browse at: http://EC2-Public-IP:8080
 
+### eksctl 
+
+* curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz"
+* tar -xzf eksctl_$(uname -s)_amd64.tar.gz
+* sudo mv eksctl /usr/local/bin
+* eksctl version
+
 ### Create DockerHub Account
 
 * Navigate to hub.docker.com and sign up.
+
+### Create EKS Cluster
+
+*  eksctl create cluster --name trendapp --region 'us-east-1' --nodes 1 --node-type t3.micro --node-volume-size 8
 
 ##  Pipeline Overview
 
@@ -72,6 +87,7 @@ echo "${DOCKERHUB_PASS}" | docker login -u "${DOCKERHUB_USER}" --password-stdin
 docker push ${IMAGE_NAME}:${IMAGE_TAG}
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d362ca38-fba3-45c2-801f-c8740b25b05c" />
+
 
 ### Deploy To Kubernetes EKS CLuster
 
