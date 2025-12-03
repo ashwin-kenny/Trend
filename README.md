@@ -133,7 +133,7 @@ docker push ${IMAGE_NAME}:${IMAGE_TAG}
 <img width="1920" height="926" alt="image" src="https://github.com/user-attachments/assets/37242cdb-0811-4272-91dc-a3f925826eb5" />
 
 
-### App Accessible on 3000 Port thorugh LOADBALACER EXTERNAL IP
+### App Accessible on 3000 Port through LOAD BALANCER EXTERNAL IP
 
 http://a250bdb9c16c54a03b6a25a659945fc5-1727229873.us-east-1.elb.amazonaws.com:3000/
 
