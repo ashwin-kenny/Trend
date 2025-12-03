@@ -61,7 +61,17 @@ Browse at: http://EC2-Public-IP:8080
 
 ### Create EKS Cluster
 
-*  eksctl create cluster --name trendapp --region 'us-east-1' --nodes 1 --node-type t3.micro --node-volume-size 8
+*  eksctl create cluster \
+  --name trendapp-cluster \
+  --region us-east-1 \
+  --version 1.30 \
+  --nodegroup-name c7i-flex-ng \
+  --node-type c7i-flex.large \
+  --nodes 1 \
+  --nodes-min 1 \
+  --nodes-max 1 \
+  --node-volume-size 20 \
+  --managed
 
 ##  Pipeline Overview
 
@@ -116,14 +126,18 @@ docker push ${IMAGE_NAME}:${IMAGE_TAG}
 ### EKS Resources:
 
 * Pods
-
-  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/51c1a8d2-c684-4d27-a2ec-e646bf9a4dfd" />
+<img width="1920" height="922" alt="image" src="https://github.com/user-attachments/assets/c0a76864-7db8-4876-a4eb-1231e4fbd520" />
 
 * Services
 
-  <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/296f168a-6c29-4131-b2c9-4e43b5022e4a" />
+<img width="1920" height="926" alt="image" src="https://github.com/user-attachments/assets/37242cdb-0811-4272-91dc-a3f925826eb5" />
 
 
+### App Accessible on 3000 Port thorugh LOADBALACER EXTERNAL IP
+
+http://a250bdb9c16c54a03b6a25a659945fc5-1727229873.us-east-1.elb.amazonaws.com:3000/
+
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/dc9ba85a-49b8-447b-a61e-86dcce7d041c" />
 
 
 
