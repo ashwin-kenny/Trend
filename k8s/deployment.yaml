@@ -16,6 +16,6 @@ spec:
         - name: trend-app
           image: ashwkenny/trend-app:latest
           ports:
-            - containerPort: 3000
+            - containerPort: 80
       imagePullSecrets:
         - name: dockerhub-secret
