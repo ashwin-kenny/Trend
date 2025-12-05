@@ -47,15 +47,9 @@
                     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-creds') {
                         img.push()
                     }
-                    
-                    // Also tag and push as 'latest'
-                    img.addTag("latest")
-                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-creds') {
-                        img.push("latest")
                     }
                 }
             }
-        }
 
         stage('Configure kubectl for EKS') {
             steps {
