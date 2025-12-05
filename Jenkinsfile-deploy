@@ -1,4 +1,4 @@
-pipeline {
+ pipeline {
     agent 
     {
         label 'built-in'
@@ -21,7 +21,7 @@ pipeline {
                     export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
                     export AWS_REGION=us-east-1
                     cd infra
-                    terraform init
+                    terraform init -reconfigure
                     terraform plan 
                     terraform apply --auto-approve
                  """
