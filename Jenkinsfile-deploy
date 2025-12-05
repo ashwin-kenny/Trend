@@ -40,7 +40,7 @@ pipeline {
             steps {
                 script {
                     // Use withRegistry to push with credentials
-                    docker.withRegistry('index.docker.io', DOCKER_CRED_ID) {
+                    docker.withRegistry('https://registry.hub.docker.com'', DOCKER_CRED_ID) {
                         env.DOCKER_IMAGE.push()
                         // Optional: push a 'latest' tag as well
                         env.DOCKER_IMAGE.push('latest')
